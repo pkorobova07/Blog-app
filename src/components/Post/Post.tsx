@@ -1,4 +1,3 @@
-// src/components/Post.tsx
 import Link from "next/link";
 import { Post as PostType } from "@/lib/types";
 

@@ -1,4 +1,3 @@
-// src/components/TagFilter.tsx
 import { Tag } from "@/lib/types";
 
 interface TagFilterProps {

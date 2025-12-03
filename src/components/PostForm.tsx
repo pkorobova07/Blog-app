@@ -1,4 +1,3 @@
-// src/components/CreatePostForm.tsx
 "use client";
 
 import { useState } from "react";

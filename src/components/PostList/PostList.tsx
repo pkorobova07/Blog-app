@@ -1,5 +1,3 @@
-// src/components/PostList.tsx
-
 import Post from "../Post/Post";
 import { Post as PostType } from "@/lib/types";
 
