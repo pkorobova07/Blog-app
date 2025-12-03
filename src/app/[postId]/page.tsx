@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPost} from "@/lib/posts";
+import { getPost } from "@/lib/posts";
 import Header from "@/components/Header/Header";
 import Post from "@/components/Post/Post";
 
@@ -16,7 +16,9 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <div>
       <Header />
-      <Link href="/">← Назад</Link>
+      <Link href="/" className="navig">
+        ← Назад
+      </Link>
       <Post post={post} showFull={true} />
     </div>
   );

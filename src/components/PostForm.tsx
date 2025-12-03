@@ -42,11 +42,7 @@ export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) {
     <form onSubmit={handleSubmit}>
       <div>
         <label>Имя автора</label>
-        <input
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          placeholder="Ваше имя"
-        />
+        <input value={author} onChange={(e) => setAuthor(e.target.value)} />
       </div>
 
       <div>

@@ -10,7 +10,11 @@ export default function Header() {
         <p className="site-subtitle">Пиши. Читай. Делись.</p>
       </div>
       <nav>
-        <Link href="/create-post" className="post-button">+ Новый пост</Link>
+        <button>
+          <Link href="/create-post" className="post-button">
+            + Новый пост
+          </Link>
+        </button>
       </nav>
     </header>
   );

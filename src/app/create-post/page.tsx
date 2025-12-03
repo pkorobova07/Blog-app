@@ -17,6 +17,7 @@ export default function CreatePostPage() {
   return (
     <div>
       <Header />
+      <Link href="/" className="navig">← Назад</Link>
       <CreatePostForm onCreatePost={handleCreate} />
     </div>
   );

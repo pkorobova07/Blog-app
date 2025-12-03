@@ -46,7 +46,11 @@ export default function Post({
         )}
       </div>
 
-      {!showFull && <Link href={`/${post.id}`}>Читать далее →</Link>}
+      {!showFull && (
+        <Link href={`/${post.id}`} className="navig">
+          Читать далее →
+        </Link>
+      )}
     </article>
   );
 }
