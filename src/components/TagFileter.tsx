@@ -24,7 +24,9 @@ export default function TagFilter({
       {activeTag && (
         <div>
           <span>Фильтр: #{activeTag}</span>
-          <button onClick={() => onTagClick(null)}>✕</button>
+          <button onClick={() => onTagClick(null)} className="close-button">
+            ✕
+          </button>
         </div>
       )}
     </div>

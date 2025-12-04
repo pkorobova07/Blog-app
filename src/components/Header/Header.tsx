@@ -7,7 +7,7 @@ export default function Header() {
         <h1 className="site-title">
           <Link href="/">DevBlog</Link>
         </h1>
-        <p className="site-subtitle">Пиши. Читай. Делись.</p>
+
       </div>
       <nav>
         <button>
