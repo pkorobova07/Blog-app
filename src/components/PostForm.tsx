@@ -55,6 +55,7 @@ export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          placeholder="Введите заголовок"
           required
         />
       </div>
@@ -64,6 +65,7 @@ export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) {
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          placeholder="Поделитесь своими мыслями"
           required
         />
       </div>
@@ -74,6 +76,7 @@ export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) {
           type="text"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
+          placeholder="введите теги через запятую"
         />
       </div>
 

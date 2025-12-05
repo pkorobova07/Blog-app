@@ -23,8 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <main className="min-h-screen">{children}</main>
+      <body>
+        <div className="container">{children}</div>
       </body>
     </html>
   );

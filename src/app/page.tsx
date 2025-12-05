@@ -29,7 +29,25 @@ export default function HomePage() {
     ? posts.filter((post) => post.tags.includes(activeTag)) // было .some()
     : posts;
 
-  if (loading) return <div>Загрузка...</div>;
+
+if (loading) return (
+  <div style={{
+    textAlign: 'center',
+    padding: '100px',
+    background: 'var(--background)',
+    minHeight: '100vh'
+  }}>
+    <p style={{
+      color: 'var(--foreground)',
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+      animation: 'blink 1s infinite'
+    }}>
+      ⏳ Загружаем посты...
+    </p>
+  </div>
+);
+
 
   return (
     <div>

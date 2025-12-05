@@ -1,13 +1,13 @@
 
-import { Post, Tag } from '@/lib/types'
-import { supabase } from './prvider'
+import { Post } from '@/lib/types'
+import { supabase } from './provider'
 
-// 1. Получить посты
-export async function getPosts() {
+
+export async function getPosts() { // 1. все посты по id
   const { data, error } = await supabase
     .from('posts')
     .select('*')
-    .order('id', { ascending: false })
+    .order('id', { ascending: false }) //сорт по убыванию id
   
   if (error || !data) return []
   
@@ -20,12 +20,12 @@ export async function getPosts() {
   })) as Post[]
 }
 
-// 2. Получить пост
+// 2. получение одного поста по id
 export async function getPost(id: string) {
   const { data: post, error } = await supabase
     .from('posts')
     .select('*')
-    .eq('id', id)
+    .eq('id', id) // id равен переданному и выводит одну запись
     .single()
   
   if (error || !post) return null
@@ -39,7 +39,7 @@ export async function getPost(id: string) {
   } as Post
 }
 
-// 3. Получить теги
+// 3. уникальные теги сбор
 export async function getTags() {
   const { data: posts, error } = await supabase
     .from('posts')
@@ -47,7 +47,7 @@ export async function getTags() {
   
   if (error || !posts) return []
   
-  const tagSet = new Set<string>()
+  const tagSet = new Set<string>() // уник значение
   
   posts.forEach(post => {
     if (post.tags) {
