@@ -41,12 +41,16 @@ export default function Post({
               #{tag}
             </button>
           ) : (
-            <span key={i}>#{tag}</span>
+            <span key={i}>#{tag} </span>
           )
         )}
       </div>
 
-      {!showFull && <Link href={`/${post.id}`}>Читать далее →</Link>}
+      {!showFull && (
+        <Link href={`/${post.id}`} className="perehodi">
+          Читать далее →
+        </Link>
+      )}
     </article>
   );
 }

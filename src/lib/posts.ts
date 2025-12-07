@@ -63,10 +63,11 @@ export async function getTags() {
 }
 
 // 4. Создать пост
+// src/lib/supabase/posts.ts
 export async function createPost(data: {
   title: string
   content: string
-  author: string
+  author: string // теперь всегда приходит из авторизации
   tags: string
 }) {
   const tagsArray = data.tags
@@ -79,12 +80,12 @@ export async function createPost(data: {
     .insert([{
       title: data.title,
       content: data.content,
-      author: data.author,
+      author: data.author, // сохраняем переданное имя
       tags: tagsArray
     }])
     .select()
     .single()
   
   if (error) return null
-  return post as Post
+  return post
 }

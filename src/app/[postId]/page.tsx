@@ -16,7 +16,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <div>
       <Header />
-      <Link href="/">← Назад</Link>
+      <Link href="/" className="link-back">← Назад</Link>
       <Post post={post} showFull={true} />
     </div>
   );

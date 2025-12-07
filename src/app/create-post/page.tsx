@@ -1,24 +1,43 @@
-"use client";
+// src/app/create-post/page.tsx
+'use client'
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { createPost } from "@/lib/posts";
-import CreatePostForm from "@/components/PostForm";
-import Header from "@/components/Header/Header";
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Header from '@/components/Header/Header'
+import CreatePostForm from '@/components/PostForm'
+import { createPost } from '@/lib/posts'
 
 export default function CreatePostPage() {
-  const router = useRouter();
+  const router = useRouter()
+  const [user, setUser] = useState<any>(null)
 
-  const handleCreate = async (data: any) => {
-    const result = await createPost(data);
-    return !!result;
-  };
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user')
+    if (!savedUser) {
+      router.push('/login')
+    } else {
+      setUser(JSON.parse(savedUser))
+    }
+  }, [router])
+
+  const handleCreatePost = async (data: { title: string; content: string; tags: string }) => {
+    const postData = {
+      ...data,
+      author: user.username // берем username из авторизации
+    }
+    const result = await createPost(postData)
+    return !!result
+  }
+
+  if (!user) return <div>Проверка доступа...</div>
 
   return (
     <div>
       <Header />
-      <Link href="/" className="navig">← Назад</Link>
-      <CreatePostForm onCreatePost={handleCreate} />
+      <CreatePostForm 
+        onCreatePost={handleCreatePost} 
+        username={user.username} // передаем username
+      />
     </div>
-  );
+  )
 }

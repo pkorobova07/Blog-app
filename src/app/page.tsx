@@ -57,7 +57,7 @@ if (loading) return (
         </div>
         <div className="tags-sidebar-wrapper">
           <div className="tags-box">
-            <h3>Хештеги</h3>
+            <h3>Теги</h3>
             <TagFilter tags={tags} activeTag={activeTag} onTagClick={setActiveTag} />
             {activeTag && (
               <div className="current-filter">
