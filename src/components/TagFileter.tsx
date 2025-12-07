@@ -12,21 +12,25 @@ export default function TagFilter({
   onTagClick,
 }: TagFilterProps) {
   return (
-    <div>
-      <button onClick={() => onTagClick(null)}>Все</button>
-
-      {tags.map((tag, i) => (
-        <button key={i} onClick={() => onTagClick(tag)}>
-          {tag}
-        </button>
-      ))}
-
-      {activeTag && (
-        <div>
-          <span>Фильтр: #{activeTag}</span>
-          <button onClick={() => onTagClick(null)}>✕</button>
-        </div>
-      )}
+    <div className="tags-vertical">
+      <button 
+        className={`tag-all ${!activeTag ? 'tag-selected' : ''}`}
+        onClick={() => onTagClick(null)}
+      >
+        Все посты
+      </button>
+      
+      <div className="tags-list-vertical">
+        {tags.map((tag, i) => (
+          <button 
+            key={i} 
+            className={`tag-btn-vertical ${activeTag === tag ? 'tag-selected' : ''}`}
+            onClick={() => onTagClick(tag)}
+          >
+            #{tag}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

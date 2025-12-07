@@ -12,7 +12,7 @@ interface CreatePostFormProps {
   }) => Promise<boolean>;
 }
 
-export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) {
+export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) { // кокашки
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -76,7 +76,7 @@ export default function CreatePostForm({ onCreatePost }: CreatePostFormProps) {
           type="text"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
-          placeholder="введите теги через запятую"
+          placeholder="Введите теги через запятую"
         />
       </div>
 

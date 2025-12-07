@@ -48,12 +48,26 @@ if (loading) return (
   </div>
 );
 
-
-  return (
+  return (  // редакт с боковыми тегами
     <div>
       <Header />
-      <TagFilter tags={tags} activeTag={activeTag} onTagClick={setActiveTag} />
-      <PostList posts={filteredPosts} onTagClick={setActiveTag} />
+      <div className="page-with-sidebar">
+        <div className="posts-column">
+          <PostList posts={filteredPosts} onTagClick={setActiveTag} />
+        </div>
+        <div className="tags-sidebar-wrapper">
+          <div className="tags-box">
+            <h3>Хештеги</h3>
+            <TagFilter tags={tags} activeTag={activeTag} onTagClick={setActiveTag} />
+            {activeTag && (
+              <div className="current-filter">
+                <p>Выбран: <span className="filter-tag">#{activeTag}</span></p>
+                <button onClick={() => setActiveTag(null)}>× Сбросить</button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
